@@ -1,0 +1,20 @@
+-Products
+    Components:
+        -All Products
+        -Product Details
+    Services: 
+        -product.service
+
+
+-  Carts
+    Components:
+        - Cart
+    -Servics:
+        -Cart.service
+
+-  Shared
+    Components: 
+        -navbar
+        -select
+    Services:
+        Cart.service
