@@ -9,6 +9,7 @@ import { ProductsService } from '../../services/products.service';
 export class AllProductsComponent implements OnInit {
   products: any[] = [];
   categories: any[] = [];
+  loading = false;
   constructor(private productsService: ProductsService) {}
   ngOnInit(): void {
     this.getProducts();
@@ -16,20 +17,25 @@ export class AllProductsComponent implements OnInit {
   }
 
   getProducts() {
+    this.loading = true;
     this.productsService.getAllProducts().subscribe(
       (res: any) => {
         this.products = res;
         console.log(res);
+        this.loading = false;
       },
       (error: Error) => {
         alert(error.message);
+        this.loading = false;
       }
     );
   }
 
   getCategories() {
+    this.loading = true;
     this.productsService.getAllCategories().subscribe((res: any) => {
       console.log(res);
+      this.loading = false;
       this.categories = res;
     });
   }
@@ -42,8 +48,10 @@ export class AllProductsComponent implements OnInit {
   }
 
   getProductsCategory(value: string) {
+    this.loading = true;
     this.productsService.getProductsByCategory(value).subscribe((res: any) => {
       this.products = res;
+      this.loading = false;
     });
   }
 }
