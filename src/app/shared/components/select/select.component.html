@@ -1,0 +1,7 @@
+<label for="">{{ title }} </label>
+<select name="" id="" class="bg-gray-400 p-3" (change)="detectChanges($event)">
+  <option value="all" selected>All</option>
+  <option *ngFor="let category of data" value="{{ category }}">
+    {{ category }}
+  </option>
+</select>

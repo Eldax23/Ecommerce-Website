@@ -1,0 +1,26 @@
+<div class="w-full h-full flex flex-col">
+  <img
+    src="{{ prd.image }}"
+    alt=""
+    class="w-full h-52 object-cover rounded-lg"
+  />
+
+  <div>
+    <div class="bg-gray-400 p-5">
+      <p class="truncate">{{ prd.title }}</p>
+    </div>
+    <div class="flex flex-col gap-10 p-4 justify-between">
+      <div class="flex-grow">
+        <p class="line-clamp-4">{{ prd.description }}</p>
+      </div>
+      <div class="flex justify-between items-center">
+        <button
+          class="bg-green-700 px-4 py-2 text-white rounded transition-all duration-500 hover:bg-green-900"
+        >
+          Add To Cart
+        </button>
+        <span class="bg-red-400 rounded-md p-2">${{ prd.price }}</span>
+      </div>
+    </div>
+  </div>
+</div>
