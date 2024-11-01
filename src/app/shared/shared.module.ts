@@ -5,10 +5,17 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectComponent } from './components/select/select.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [HeaderComponent, SelectComponent, SpinnerComponent],
-  imports: [CommonModule, RouterModule, HttpClientModule],
-  exports: [HeaderComponent, SelectComponent, SpinnerComponent],
+  imports: [CommonModule, RouterModule, HttpClientModule, FormsModule],
+  exports: [
+    HeaderComponent,
+    SelectComponent,
+    SpinnerComponent,
+    FormsModule,
+    RouterModule,
+  ],
 })
 export class SharedModule {}

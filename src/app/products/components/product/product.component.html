@@ -16,10 +16,24 @@
       <div class="flex justify-between items-center">
         <button
           class="bg-green-700 px-4 py-2 text-white rounded transition-all duration-500 hover:bg-green-900"
-          (click)="onAddToCart()"
+          *ngIf="!addButton"
+          (click)="addButton = !addButton"
         >
           Add To Cart
         </button>
+        <div class="flex gap-5" *ngIf="addButton">
+          <input
+            type="number"
+            class="bg-gray-300 w-1/3 py-1"
+            [(ngModel)]="amount"
+          />
+          <button
+            (click)="onAddToCart(); addButton = false"
+            class="bg-red-600 p-2 text-white"
+          >
+            Add
+          </button>
+        </div>
         <span class="bg-red-400 rounded-md p-2">${{ prd.price }}</span>
       </div>
     </div>

@@ -5,14 +5,14 @@ import { ProductsDetailsComponent } from './products/components/products-details
 import { CartsComponent } from './carts/carts.component';
 
 const routes: Routes = [
-  {path: "products" , component: AllProductsComponent},
-  {path:"details" , component:ProductsDetailsComponent},
-  {path: "cart" , component: CartsComponent},
-  {path: "**" , redirectTo:"products" , pathMatch: "full"}
+  { path: 'products', component: AllProductsComponent },
+  { path: 'details/:id', component: ProductsDetailsComponent },
+  { path: 'cart', component: CartsComponent },
+  { path: '**', redirectTo: 'products', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

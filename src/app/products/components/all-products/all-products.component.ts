@@ -60,7 +60,8 @@ export class AllProductsComponent implements OnInit {
     console.log(prd);
     if (localStorage.getItem('cart')) {
       this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
-      let exist = this.cartProducts.filter((p) => p.id == prd.id).length > 0;
+      let exist =
+        this.cartProducts.filter((p) => p.item.id == prd.item.id).length > 0;
       if (exist) {
         alert('product already exists');
       } else {

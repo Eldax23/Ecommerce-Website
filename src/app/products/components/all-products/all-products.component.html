@@ -15,6 +15,7 @@
   <div
     *ngFor="let prd of products"
     class="bg-white shadow-md rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+    routerLink="/details/{{ prd.id }}"
   >
     <app-product [prd]="prd" (addToCart)="addToCart($event)"></app-product>
   </div>

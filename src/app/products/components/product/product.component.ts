@@ -8,8 +8,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ProductComponent {
   @Input() prd: any;
   @Output() addToCart = new EventEmitter();
-
+  amount: number = 0;
+  addButton = false;
   onAddToCart() {
-    this.addToCart.emit(this.prd);
+    this.addToCart.emit({ item: this.prd, quantity: this.amount });
   }
 }
