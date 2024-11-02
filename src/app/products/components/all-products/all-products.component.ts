@@ -51,8 +51,8 @@ export class AllProductsComponent implements OnInit {
   getProductsCategory(value: string) {
     this.loading = true;
     this.productsService.getProductsByCategory(value).subscribe((res: any) => {
-      this.products = res;
       this.loading = false;
+      this.products = res;
     });
   }
 
