@@ -1,16 +1,17 @@
 <div class="w-full h-full flex flex-col">
-  <img
-    src="{{ prd.image }}"
-    alt=""
-    class="w-full h-52 object-cover rounded-lg"
-  />
-
+  <div routerLink="/details/{{ prd.id }}">
+    <img
+      src="{{ prd.image }}"
+      alt=""
+      class="w-full h-52 object-cover rounded-lg"
+    />
+  </div>
   <div>
-    <div class="bg-gray-400 p-5">
+    <div class="bg-gray-400 p-5" routerLink="/details/{{ prd.id }}">
       <p class="truncate">{{ prd.title }}</p>
     </div>
     <div class="flex flex-col gap-10 p-4 justify-between">
-      <div class="flex-grow">
+      <div class="flex-grow" routerLink="/details/{{ prd.id }}">
         <p class="line-clamp-4">{{ prd.description }}</p>
       </div>
       <div class="flex justify-between items-center">

@@ -1,0 +1,46 @@
+<table class="table-auto w-full text-center">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="px-4 py-2">Image</th>
+      <th class="px-4 py-2">Product</th>
+      <th class="px-4 py-2">Price</th>
+      <th class="px-4 py-2">Quantity</th>
+      <th class="px-4 py-2">Total</th>
+      <th class="px-4 py-2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prd of cartProducts" class="border-b">
+      <td class="px-4 py-2">
+        <img
+          src="{{ prd.item.image }}"
+          style="width: 50px; margin-left: 2px"
+          alt=""
+        />
+      </td>
+      <td class="px-4 py-2">{{ prd.item.title }}</td>
+      <td class="px-4 py-2">${{ prd.item.price }}</td>
+      <td class="px-4 py-2 flex gap-2 items-center justify-center">
+        <button class="bg-black px-1 text-white">+</button>
+        {{ prd.quantity }}
+        <button class="bg-black px-1 text-white">-</button>
+      </td>
+      <td class="px-4 py-2">${{ prd.item.price * prd.quantity }}</td>
+      <td class="px-4 py-2">
+        <button
+          class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+        >
+          Remove
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="flex justify-end mt-4">
+  <button
+    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+  >
+    Checkout
+  </button>
+</div>
