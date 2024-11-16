@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-products-details',
@@ -9,7 +10,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductsDetailsComponent implements OnInit {
   id: any = -1;
-  prd: any;
+  prd!: Product;
   loading = false;
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +24,7 @@ export class ProductsDetailsComponent implements OnInit {
 
   getProduct() {
     this.loading = true;
-    this.productsService.getProductById(this.id).subscribe((res) => {
+    this.productsService.getProductById(this.id).subscribe((res: any) => {
       this.prd = res;
       this.loading = false;
     });

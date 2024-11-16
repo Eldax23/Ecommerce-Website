@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product',
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
-  @Input() prd: any;
+  @Input() prd!: Product;
   @Output() addToCart = new EventEmitter();
   amount: number = 0;
   addButton = false;
