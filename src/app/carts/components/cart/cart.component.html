@@ -1,46 +1,87 @@
-<table class="table-auto w-full text-center">
-  <thead class="bg-gray-100">
-    <tr>
-      <th class="px-4 py-2">Image</th>
-      <th class="px-4 py-2">Product</th>
-      <th class="px-4 py-2">Price</th>
-      <th class="px-4 py-2">Quantity</th>
-      <th class="px-4 py-2">Total</th>
-      <th class="px-4 py-2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let prd of cartProducts" class="border-b">
-      <td class="px-4 py-2">
-        <img
-          src="{{ prd.item.image }}"
-          style="width: 50px; margin-left: 2px"
-          alt=""
-        />
-      </td>
-      <td class="px-4 py-2">{{ prd.item.title }}</td>
-      <td class="px-4 py-2">${{ prd.item.price }}</td>
-      <td class="px-4 py-2 flex gap-2 items-center justify-center">
-        <button class="bg-black px-1 text-white">+</button>
-        {{ prd.quantity }}
-        <button class="bg-black px-1 text-white">-</button>
-      </td>
-      <td class="px-4 py-2">${{ prd.item.price * prd.quantity }}</td>
-      <td class="px-4 py-2">
-        <button
-          class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
-        >
-          Remove
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="overflow-x-auto">
+  <h2 class="mt-5 mb-3 text-2xl font-bold">
+    You Have
+    <span class="text-red-700">{{ this.cartProducts.length }} </span>items in
+    your cart
+  </h2>
+  <table
+    class="table-auto w-full text-center border-collapse border border-gray-200 rounded-lg shadow-sm"
+  >
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="px-4 py-2">Image</th>
+        <th class="px-4 py-2">Product</th>
+        <th class="px-4 py-2">Price</th>
+        <th class="px-4 py-2">Quantity</th>
+        <th class="px-4 py-2">Total</th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let prd of cartProducts; let index = index"
+        class="border-b hover:bg-gray-50 transition-colors"
+      >
+        <td class="px-4 py-2">
+          <img
+            src="{{ prd.item.image }}"
+            class="w-12 h-12 object-cover rounded-md mx-auto"
+            alt="Product Image"
+          />
+        </td>
+        <td class="px-4 py-2 text-gray-700">{{ prd.item.title }}</td>
+        <td class="px-4 py-2 text-gray-600">${{ prd.item.price }}</td>
+        <td class="px-4 py-2 flex gap-2 items-center justify-center">
+          <button
+            class="bg-black text-white px-2 py-1 rounded-md hover:scale-105 transition-transform"
+            (click)="addAmount(index)"
+          >
+            +
+          </button>
+          <!-- <span class="text-gray-700 font-medium">{{ prd.quantity }}</span> -->
+          <input
+            class="text-gray-700 font-medium"
+            (change)="detectChange()"
+            [(ngModel)]="prd.quantity"
+          />
+          <button
+            class="bg-black text-white px-2 py-1 rounded-md hover:scale-105 transition-transform"
+            (click)="minusAmount(index)"
+          >
+            -
+          </button>
+        </td>
+        <td class="px-4 py-2 text-gray-700">
+          ${{ prd.item.price * prd.quantity }}
+        </td>
+        <td class="px-4 py-2">
+          <button
+            class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors shadow hover:shadow-md"
+            (click)="deleteProduct(prd.item.title)"
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<div class="flex justify-end mt-4">
+<div class="flex justify-end gap-5 mt-4 items-center flex-wrap">
+  <p class="text-lg font-semibold text-gray-700">Total: {{ total }}</p>
   <button
-    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+    class="bg-red-600 text-white px-6 py-3 rounded-lg"
+    (click)="clearCart()"
+  >
+    Clear
+  </button>
+  <button
+    class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors shadow hover:shadow-md mt-2 sm:mt-0"
+    (click)="addCart()"
   >
     Checkout
   </button>
 </div>
+<p class="text-center text-2xl font-bold" *ngIf="orderSuccess">
+  Order Has Been Successfully Sent
+</p>

@@ -1,9 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartsService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  addCart(body: any) {
+    return this.http.post(environment.baseApi + 'carts', body);
+  }
 }
