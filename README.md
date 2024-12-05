@@ -1,27 +1,24 @@
-# StoreApp
+# Ecommerce Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
+This is a simple e-commerce website built with **Angular**.
 
-## Development server
+## Project Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The project is designed to provide a basic e-commerce experience, allowing users to view products, add them to their cart, and proceed with checkout.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Display products in a list
+- Add products to the shopping cart
+- Remove products from the cart
+- View cart details
+- Responsive design using **Tailwind CSS**
 
-## Build
+## Development Setup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To get started with this project locally:
 
-## Running unit tests
+1. Clone the repository:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   git clone https://github.com/Eldax23/Ecommerce-Website.git
